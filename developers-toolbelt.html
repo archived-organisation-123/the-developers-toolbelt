@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Developers Toolset</title>
+    <title>The Developer's Toolbelt</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
@@ -25,7 +25,7 @@ class: middle
 
 .right[![CodeUp Leeds](assets/code-up-leeds.jpeg)]
 
-# The Developers Toolset
+# The Developer's Toolbelt
 
 ### Daniel Rollins & David Sequero
 
@@ -70,7 +70,182 @@ Notes notes notes
 * Source Control
     * What is source control
     * Why would you need it?
+
 ---
+
+# Productivity
+
+.left[![IRC](assets/irc.jpg)]
+
+---
+
+# Productivity
+
+* Communication and Collaboration
+    * IRC and mailing lists (seriously)
+    * Slack, Gitter
+    * Google Hangouts, appear.in
+    * Code hosting sites: GitHub, GitLab, BitBucket
+
+--
+
+* Project Management
+    * Work: Jira, Trello
+    * Knowledge sharing: Confluence, MediaWiki, GitHub Wiki
+    * Make diagrams: draw.io
+
+---
+
+# Web Hosting
+
+* Web hosting
+    * Conventional web hosting sites. e.g GoDaddy
+    * Netlify
+    * GitHub Pages
+
+![CodeUp](assets/codeup-site.jpg)]
+
+???
+GoDaddy lets you upload your website via FTP or some other mechanism. You have little control over where your app lives or how
+the underlying server is configured. Cheap.
+Netlify allows you to push your code repo through a build pipeline that will ultimately deploy a site ready to go (HTTPS and all). Free.
+GitHub Pages are static pages served straight from a GitHub repo. Also free.
+
+---
+
+![The Cloud](assets/cloud.jpg)
+
+---
+
+# The Ultimate Tool: The Cloud
+
+* Computing as a service
+
+--
+
+* ~~Computing~~ Anything as a service
+
+--
+    * Servers
+    * Networking
+--
+    * Data stores and databases
+--
+    * Web APIs
+    * Development Tools
+--
+    * Security
+--
+    * Game Development
+--
+    * Natural speech, language translation
+    * Machine Learning and AI
+--
+    * Streaming, media transcoding
+--
+    * IoT, satellites, VR, AR, blockchain, robots... (*oh my!*)
+
+--
+
+* Let's run some software on the cloud!
+
+---
+
+# Getting Help
+
+* CodeUp Leeds Slack!
+* StackOverflow: Q&A format
+* Official Documentation
+* DuckDuckGo Bangs: `!js array map`
+
+---
+
+# Setting up a local development environment: Easy Mode
+
+* Your workstation is the environment
+
+--
+
+.center[![Spaghett](assets/spaghett.jpg)]
+
+---
+
+# Local Development Environments: VMs
+
+* Virtual machines
+    * A computer within your computer
+    * Completely isolated from your actual software
+
+--
+.center[![Fixed](assets/spaghett-fixed.jpg)]
+
+--
+* Cumbersome to manage!
+
+---
+
+# Advanced Development Environment Setup
+
+* Vagrant
+
+```ruby
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/xenial64"
+    ubuntu.vm.hostname = "ubuntu"
+    ubuntu.vm.network :private_network, type: "dhcp"
+    ubuntu.vm.provider "virtualbox" do |vb|
+        vb.customize ["modifyvm", :id, "--memory", 1024]
+        vb.customize ["modifyvm", :id, "--cpus", 1]
+    end
+  end
+end
+```
+
+--
+* Docker
+
+```bash
+$ docker run --rm -it python:3 python
+```
+
+---
+
+# Useful Links
+
+* hacker-tools.github.io
+* explainshell.com
+* devdocs.io
+
+---
+
+class: center
+
+# Let Us Know How We Did
+
+.center[![Feedback QR](assets/feedback-qr.png)]
+
+https://bit.ly/2V7axKP
+
+---
+
+class: center, middle
+
+<div style="font-size: 2rem;background-color: #eee; padding: 0.5rem; line-height: 0.5rem;">
+    <pre>
+[codeup@iw]$ man man
+    </pre>
+</div>
+
+---
+
+# Credits
+
+https://www.theregister.co.uk/2018/11/20/pure_storage_hybrid_cloud/
+
     </textarea>
     <script src='vendor/remark-latest.min.js'>
     </script>
