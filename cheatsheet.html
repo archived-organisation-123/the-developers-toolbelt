@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Developer's Toolbelt: Cheatsheet</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+# Terminal
+
+* Connect to a remote computer
+```
+ssh -i file.pem ubuntu@<ip_address>
+```
+
+* Getting help for a command
+```
+man <command>
+```
+
+* List the contents of the current directory
+```
+ls
+```
+
+* List the contents of a directory in a path
+```
+ls /path/to/the/file
+```
+
+* Changing the current directory
+```
+cd /path/to/directory
+```
+
+---
+
+# Terminal
+
+* Search a file
+```
+find -name "filename"
+```
+
+* Search for some text in a file (or many files)
+```
+grep "sometext" filename
+```
+
+* Send a request to a web server
+```
+curl -L <address>
+```
+    </textarea>
+    <script src='vendor/remark-latest.min.js'>
+    </script>
+    <script>
+        var slideshow = remark.create()
+    </script>
+  </body>
+</html>
