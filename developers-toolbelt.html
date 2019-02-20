@@ -14,6 +14,16 @@
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
+
+      .footnote {
+          position: absolute;
+          bottom: 1em;
+      }
+
+      .footnote::before {
+          content: "- ";
+      }
+
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     </style>
   </head>
@@ -23,7 +33,9 @@
 
 class: middle
 
-.right[![CodeUp Leeds](assets/code-up-leeds.jpeg)]
+.right[
+![CodeUp Leeds](assets/code-up-leeds.jpeg)
+]
 
 # The Developers Toolset
 
@@ -39,12 +51,13 @@ _Thursday 21st February 2018_
 * Terminal/CLI
     * What is it?
     * Filesystem navigation
+    *
     * Text manipulation
     * What is shell scripting?
 
 ???
 
-Notes notes notes
+Why is it called a terminal?
 
 --
 
@@ -68,6 +81,136 @@ Notes notes notes
     * What is source control
     * Why would you need it?
 ---
+layout: true
+# <i class="fas fa-terminal"></i> The Terminal
+---
+
+## A Wikipedia definition
+
+> A computer terminal is an electronic or electromechanical hardware device
+> that is used for entering data into, and displaying or printing data from,
+> a computer or a computing system.
+
+.footnote[https://en.wikipedia.org/wiki/Computer_terminal]
+---
+
+## A Wikipedia definition
+
+> A computer terminal is an electronic or <b>electromechanical</b> hardware
+> device that is used for entering data into, and displaying or printing data
+> from, a computer or a computing system.
+
+.center[
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/IBM2741.JPG/1920px-IBM2741.JPG"
+     style="width: 50%"
+/>
+]
+
+.footnote[https://en.wikipedia.org/wiki/Computer_terminal]
+---
+
+.center[
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/DEC_VT100_terminal.jpg/1920px-DEC_VT100_terminal.jpg"
+     style="width: 70%"
+ />
+]
+
+.footnote[https://en.wikipedia.org/wiki/VT100]
+
+---
+layout: false
+# <i class="fas fa-terminal"></i> The Terminal _Emulator_
+
+<img src="https://2.bp.blogspot.com/-jQc4Uoy6D5s/V1cI7q4q2pI/AAAAAAAAGPE/xjIdRF544JsZc_iI4yByCKvXRb25GjSTgCLcB/s1600/08%2BXfce4%3BTerminal.png"
+     style="width:100%"
+/>
+
+???
+
+Or pseudo tty (pty)
+
+---
+
+background-image: url(https://i.giphy.com/media/eauCbbW6MvqKI/giphy.webp)
+background-size: 100%
+
+---
+
+layout: true
+class: middle
+# <i class="fas fa-terminal"></i> Filesystem navigation
+---
+
+`pwd`: print working directory
+
+???
+
+Before you can navigate you need to know where you are!
+
+pwd directory in current terminal
+
+open new terminal and pwd again
+---
+
+* `cd`: change directory
+
+---
+
+* `ls`: list directory
+---
+
+* `find`: find files based based on a name.
+---
+
+* globbing: specify path based on a pattern
+---
+
+layout: true
+class: middle
+# <i class="fas fa-terminal"></i> File manipulation
+
+---
+
+* `cat`: concat some files (print them out to the terminal)
+---
+
+* `grep`: find a specfic text in a file
+
+???
+Examples
+
+grep -R word . # find 'word' recursively current directory recursively
+---
+
+layout: true
+class: middle
+# <i class="fas fa-terminal"></i> Getting help
+
+---
+
+`--help`: many programs with have a help flag for information on how to use it.
+---
+
+`man`: open the manual for that specified program
+---
+
+search engines, stack-overflow, etc.
+
+???
+
+If you're unsure how to solve a particular problem, googling it will reveal surprising results
+
+---
+layout: false
+
+background-image: url(https://i.giphy.com/media/eauCbbW6MvqKI/giphy.webp)
+background-size: 300%
+
+---
+
+class: middle
+# <i class="fas fa-terminal"></i> Shell scripting
+
     </textarea>
     <script src='vendor/remark-latest.min.js'>
     </script>
