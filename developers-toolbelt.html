@@ -46,6 +46,12 @@ _Thursday 21st February 2019_
 .right[![Infinity Works](assets/infinityworks-logo.jpg)]
 .right[![Northcoders](assets/northcoders-logo.jpg)]
 
+???
+
+We are going to be throwing a lot at you. Some of it in more depth than others
+but the goal is to give you exposure to these tools and explain why they are
+useful, not to teach them in depth
+
 ---
 
 # Overview
@@ -54,8 +60,8 @@ _Thursday 21st February 2019_
 * Terminal/CLI
     * What is it?
     * Filesystem navigation
-    *
     * Text manipulation
+    * Globbing
     * What is shell scripting?
 
 ???
@@ -72,9 +78,10 @@ Why is it called a terminal?
 
 --
 
+
 <i class="fas fa-step-forward" style="color: purple; padding-right:1em; float: right; font-size:4em"></i>
-* Debugger
-    * What is a debugger?
+* Debugging
+    * What is debugging?
     * Examples
 
 --
@@ -83,6 +90,24 @@ Why is it called a terminal?
 * Source Control
     * What is source control
     * Why would you need it?
+
+---
+
+# Overview
+
+* Productivity
+    * Communication
+    * Collaboration
+    * Project management
+
+--
+
+* Webhosting
+    * Serving a website on the internet
+
+--
+
+* The Cloud
 
 ---
 layout: true
@@ -132,6 +157,7 @@ layout: false
 ???
 
 Or pseudo tty (pty)
+Often called the shell. Not quite the same thing but it's ok to think of it that way for now.
 
 ---
 
@@ -140,65 +166,241 @@ background-size: 100%
 
 ---
 
+class: center middle
 layout: true
-class: middle
 # <i class="fas fa-terminal"></i> Filesystem navigation
 ---
 
-`pwd`: print working directory
+## `pwd` - print name of current/working directory
+
+As simple as it sounds.
 
 ???
 
 Before you can navigate you need to know where you are!
 
+A terminal is always in what we call a working directory. For a new shell this
+is usually your home directory.
+
+Example:
 pwd directory in current terminal
 
 open new terminal and pwd again
+
+The begining slash means it's an absoluely path (from the root of the filesystem)
+
 ---
 
-* `cd`: change directory
+## `ls`: list directory contents
+
+Prints out what is in a specific directory.
+
+--
+
+.left[
+#### Examples:
+
+* `ls`
+* `ls --all`
+* `ls some/directory`
+* `ls --recursive`
+]
+
+???
+
+Introduce flags here
 
 ---
 
-* `ls`: list directory
+## `cd` - change the current directory
+
+Changes the current working directory of the shell, so other commands can be run there.
+
+--
+
+.left[
+#### Examples:
+
+* `cd /home/djr/some/absolute/path`
+* `cd some/relative/path`
+* `cd ~/some/path/relative/to/home`
+* `cd -`
+]
+
 ---
 
-* `find`: find files based based on a name.
+
 ---
 
-* globbing: specify path based on a pattern
+### `find`: search for files in a directory hierarchy
+
+.left[
+#### Examples:
+
+* `find -name "hello.txt"`
+* `find -type d`
+* `find .`
+]
+
+???
+find will just list all files by default, like ls --recursive
+
+---
+
+### globbing: specify path based on a pattern
+
+--
+
+.left[
+#### Examples:
+
+* `echo *`
+* `echo *.txt`
+* `echo /home/djr/**/*.tar.*`
+]
+
+???
+
+
+
 ---
 
 layout: true
-class: middle
+class: center middle
 # <i class="fas fa-terminal"></i> File manipulation
 
 ---
 
-* `cat`: concat some files (print them out to the terminal)
----
+## `cat`: concatenate files and print on the standard output
 
-* `grep`: find a specfic text in a file
+Take a list of files and print their outputs one after another
 
 ???
-Examples
 
-grep -R word . # find 'word' recursively current directory recursively
+What is standard output?
+
+--
+
+.left[
+#### Examples:
+
+* `cat README.md`
+* `cat *.md`
+* `cat examples/*`
+]
+
+---
+
+## `grep`: global regular expression print
+
+???
+literal meaning is confusing so lets simplify it.
+
+---
+
+## <strike>`grep`: global regular expression print</strike>
+## `grep`: print lines that match patterns
+
+---
+
+## `grep`: print lines that match patterns
+
+.left[
+#### Examples:
+
+* `grep "word" file.txt`
+* `grep --recursive "word" directory/`
+* `grep --ignore-case "word" file.txt`
+* `grep --count "word" file.txt`
+]
+
+---
+
+## `cp`: copy files and directories
+
+Takes a path a file and new path that you would like to copy the file to.
+
+--
+
+.left[
+#### Examples:
+
+* `cp source.txt target.txt`
+* `cp --recursive source-dir target-dir`
+* `cp source1.txt source2.txt target-dir`
+]
+
+???
+
+Second example:
+copying a directory requires a flag because it can be expensive.
+
+---
+
+## `mv`: move (rename) files
+
+Takes a path a file and new path that you would like to copy the file to.
+
+--
+
+.left[
+#### Examples:
+
+* `mv source.txt target.txt`
+* `mv source-dir target-dir`
+* `mv source1.txt source-dir target-dir`
+]
+
+???
+
+moving a directory doesn't require a flag because it's not cloning a load of stuff,
+it's just changing a name.
+
 ---
 
 layout: true
-class: middle
+class: middle center
 # <i class="fas fa-terminal"></i> Getting help
 
 ---
 
-`--help`: many programs with have a help flag for information on how to use it.
+## `--help`/`-h`: help flag for terminal programs
+
+--
+
+.left[
+#### Examples:
+
+* `grep --help`
+* `mv --help`
+]
+
+???
+
+There is no clear standard (see mv), but in some cases, -h will give short help and --help will give longform help
+
 ---
 
-`man`: open the manual for that specified program
+## `man`: open the reference manual for the specified program
+--
+
+.left[
+#### Examples:
+
+* `man grep`
+* `man mv`
+* `man man`
+]
+
+???
+
+Generally a lot more in-depth and are nagivated in a pager.
+
+mention gimme gimme gimme easter egg. (man without args between midnight and quarter-past.
+
 ---
 
-search engines, stack-overflow, etc.
+## internet: search engines, stack-overflow, etc.
 
 ???
 
@@ -212,11 +414,214 @@ background-size: 300%
 
 ---
 
-class: middle
+class: center middle
 # <i class="fas fa-terminal"></i> Shell scripting
+
+--
+
+The composition of many shell commands into a file or a pipeline in order to
+do something more complex.
+
+--
+
+.left[
+#### Example
+
+* Bulk renaming a load of files
+]
+
+???
+
+I am going to use a lot of things than I haven't shown you here, but there is
+going to be a whole shellscripting course in the future.
+
+Any questions before moving on?
+---
+
+class: middle
+# <i class="fas fa-code"></i> Editors & IDEs
+
+## Lets change some file contents
 
 ---
 
+layout: true
+# <i class="fas fa-code"></i> Terminal Editors
+---
+class: middle
+
+* Run inside of a terminal (obviously)
+* Are generally shipped with all *nix systems
+* Incredibly lightweight
+* Pretty bare-bones by default, but can be very powerful when understood and customised
+* May have steep learning curves
+
+## Why?
+
+* Great for quickly editing a file when you're already in a terminal
+* Can be incorporated into scripts if needs be
+
+---
+
+<h2>Nano</h2>
+<img src="assets/nano.png" style="width:100%; float: right"/>
+
+---
+
+<h2>Vim</h2>
+<img src="assets/vim.png" style="width:100%; float: right"/>
+
+???
+
+Don't let the simple-looking interfaces fool you, these can be incredibly powerful
+editors if you spend the time learn and customise them.
+
+They aren't really for beginners because they have steep learning curves, but
+they are worth looking at in the future.
+
+They are great for quickly opening a file to do a simple edit without having to
+leave the terminal and load a more bulky program.
+
+DEMO VIM WITH NICE INTERFACE HERE!
+---
+
+### Just remember one thing for now
+
+<img src="http://devhumor.com/content/uploads/images/December2017/quit-vim.png" style="float:right; width: 50%"/>
+
+## Vim - `:qa!`
+
+## Nano = `Ctrl-x` then '`n`'
+
+???
+
+There is often a joke about not being able to quit vim
+
+And you may accidentally find your self in vim when using other tools,
+because they assume that's the editor you want to use
+---
+
+layout: true
+# <i class="fas fa-code"></i> GUI Text Editors
+---
+
+class: middle
+
+* Simple WYSIWYG interface (Buttons, menus and the usual shortcuts)
+* May have more flashy defaults than terminal emulator (syntax highlighting, auto-complete)
+
+## Why?
+
+* Great for edit configuration scripts or simple programming tasks
+* Lightweight so you can have loads of them open
+---
+
+Notepad++
+---
+
+Sublime Text
+---
+
+Emacs
+---
+
+VSCode (almost an IDE)
+---
+
+layout: true
+## <i class="fas fa-code"></i> Integrated Development Environments (IDEs)
+---
+
+* Lots of features that help in large programming tasks
+    * Lots of introspection into the programming language for auto-completion, code analysis and code generation
+    * Can run from inside the program
+    * Debugger (more on that later)
+* Often very heavyweight (can't run too many instance at once!)
+* Usually specific to a single programming language
+
+## Why?
+
+* If you are using a specific language you will possibly be more productive with an IDE
+---
+
+#### IntelliJ
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/IntelliJIDEA_2016.3_Community.png/1200px-IntelliJIDEA_2016.3_Community.png" style="width:100%"/>
+---
+
+#### PyCharm
+
+<img src="https://www.jetbrains.com/pycharm/img/screenshots/complexLook@2x.jpg" style="width:100%"/>
+---
+
+#### Microsoft Visual Studio
+
+<img src="http://getintopc.com/wp-content/uploads/2016/04/Microsoft-Visual-Studio-2015-Professional-Update-2-ISO-Offline-Installer-Download.png" style="width:100%"/>
+---
+
+#### XCode
+
+<img src="https://developer.apple.com/xcode/images/xcode-hero-secondary-large_2x.png" style="width:100%"/>
+
+---
+
+layout: true
+
+class: middle center
+# <i class="fas fa-step-forward"></i> Debugging
+
+---
+
+<img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2013/09/bug.jpg" />
+---
+
+## IntelliJ debugger
+---
+
+## Chrome/Firefox dev tools
+---
+
+layout: true
+class: middle
+# <i class="fas fa-code-branch"></i> Version Control
+--
+
+As a project grows and becomes more complex we need some way to robustly handle:
+
+* Versioning
+* Rolling back Changes
+* Collaboration
+* Back-ups
+
+???
+
+: Versioning: Knowing exactly what's in a particular release
+
+: Rolling Back Changes: Easily undo mistakes or uneeded changes
+
+: Collaboration: Most projects don't just have on person working on them
+
+: Back ups: You really don't want to lose your hard work.
+---
+
+.center[
+<img src="http://ipengineer.net/wp-content/uploads/2015/04/git-logo.jpg" style="width: 30%"/>
+]
+
+Version Control Software (VCS) is a set of tools for managing changes to a set of files.
+
+It is used in many software projects to manage source code and is often called Source Code Management (SCM) or Revision Control
+
+???
+
+One of the most popular is Git
+
+Showing to use is out of scope
+
+Show them codeup github site
+
+---
+
+layout: false
 # Productivity
 
 .left[![IRC](assets/irc.jpg)]
@@ -402,7 +807,6 @@ class: center, middle
 
 https://www.theregister.co.uk/2018/11/20/pure_storage_hybrid_cloud/
 
-
     </textarea>
     <script src='vendor/remark-latest.min.js'>
     </script>
@@ -411,3 +815,4 @@ https://www.theregister.co.uk/2018/11/20/pure_storage_hybrid_cloud/
     </script>
   </body>
 </html>
+
