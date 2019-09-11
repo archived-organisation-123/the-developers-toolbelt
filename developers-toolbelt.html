@@ -163,10 +163,12 @@ layout: true
     * Debugger (more on that later)
 * Often very heavyweight (can't run too many instance at once!)
 * Usually specific to a single programming language
+* Double-edged sword as there is a lot of abstraction but overall useful for beginners
 
 ## Why?
 
 * If you are using a specific language you will possibly be more productive with an IDE
+* If you are learning how to program
 ---
 
 #### PyCharm
@@ -185,22 +187,6 @@ layout: true
 
 ---
 
-layout: true
-
-class: middle center
-# <i class="fas fa-step-forward"></i> Debugging
-
----
-
-<img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2013/09/bug.jpg" />
----
-
-## PyCharm Debugger
----
-
-## Chrome/Firefox dev tools
----
-
 layout: false
 # Productivity
 
@@ -213,82 +199,30 @@ layout: false
 * Communication and Collaboration
     * IRC and mailing lists (seriously)
     * Slack, Gitter
-    * Google Hangouts, appear.in
+    * Google Hangouts, appear.in, Slack calls
+    * Office suite: Google Drive, LibreOffice (MS Office bad)
     * Code hosting sites: GitHub, GitLab, BitBucket
+
+???
+
+Email is federated, distributed, flexible, works well for them
 
 --
 
 * Project Management
     * Work: Jira, Trello
     * Knowledge sharing: Confluence, MediaWiki, GitHub Wiki
-    * Make diagrams: draw.io
+    * Make diagrams: lucidchart.com, draw.io
 
 ---
 
 # Getting Help
 
-* CodeUp Leeds Slack!
+* Slack
 * StackOverflow: Q&A format
 * Official Documentation
 * DuckDuckGo Bangs: `!js array map`
-
----
-
-# Setting up a local development environment: Easy Mode
-
-* Your workstation is the environment
-
---
-
-.center[![Spaghett](assets/spaghett.jpg)]
-
----
-
-# Local Development Environments: VMs
-
-* Virtual machines
-    * A computer within your computer
-    * Completely isolated from your actual software
-
---
-
-.center[![Fixed](assets/spaghett-fixed.jpg)]
-
---
-
-* Cumbersome to manage!
-
----
-
-# Advanced Development Environment Setup
-
-* Vagrant
-
-```ruby
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-Vagrant.configure("2") do |config|
-  config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/xenial64"
-    ubuntu.vm.hostname = "ubuntu"
-    ubuntu.vm.network :private_network, type: "dhcp"
-    ubuntu.vm.provider "virtualbox" do |vb|
-        vb.customize ["modifyvm", :id, "--memory", 1024]
-        vb.customize ["modifyvm", :id, "--cpus", 1]
-    end
-  end
-end
-```
-
---
-* Docker
-
-```bash
-$ docker run --rm -it python:3 python
-```
-
----
+* Talk to someone face to face
 
 # Useful Links
 
@@ -296,6 +230,27 @@ $ docker run --rm -it python:3 python
 * explainshell.com
 * devdocs.io
 
+---
+
+layout: true
+
+class: middle center
+# <i class="fas fa-step-forward"></i> Debugging
+
+---
+
+<img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2013/09/bug.jpg" />
+---
+
+## IDE Debuggers
+
+Completely interactive and GUI-driven (most of them)
+
+Pause and resume program execution at any point
+
+Follow code execution line by line
+
+Inspect variables while the application is running
     </textarea>
     <script src='vendor/remark-latest.min.js'>
     </script>
